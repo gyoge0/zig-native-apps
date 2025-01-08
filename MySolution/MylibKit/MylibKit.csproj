@@ -1,0 +1,42 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <!-- Define some metadata about the zig library -->
+    <PropertyGroup>
+        <ZigProjectName>mylib</ZigProjectName>
+    </PropertyGroup>
+
+    <!-- Translate msbuild options into zig -->
+    <!-- Could probably do cross compilation with this -->
+    <PropertyGroup Condition="$(Configuration) == 'Release'">
+        <ZigBuildOpts>--release</ZigBuildOpts>
+    </PropertyGroup>
+    <PropertyGroup Condition="$(Configuration) == 'Debug'">
+        <ZigBuildOpts></ZigBuildOpts>
+    </PropertyGroup>
+
+    <!-- Choose what files to include -->
+    <ItemGroup Condition="$(Configuration) == 'Release'">
+        <!-- Exclude debug files that might be left over from a previous build -->
+        <ZigOutputs Include="../../zig-out/bin/*" Exclude="../../zig-out/bin/*.pdb"/>
+    </ItemGroup>
+    <ItemGroup Condition="$(Configuration) == 'Debug'">
+        <ZigOutputs Include="../../zig-out/bin/*" />
+    </ItemGroup>
+
+    <!-- Define the zig build target to run before building the regular library-->
+    <Target Name="ZigBuild" BeforeTargets="BeforeBuild">
+        <!-- TODO: resolve zig binary -->
+        <Exec Command="zig build $(ZigBuildOpts)" />
+
+        <ItemGroup>
+            <None Include="@(ZigOutputs)" CopyToOutputDirectory="PreserveNewest" />
+        </ItemGroup>
+    </Target>
+
+</Project>
