@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MylibKit", "MylibKit\MylibK
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyApp", "MyApp\MyApp.csproj", "{31599995-C024-496E-91F0-8271CDB57A82}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyLibKit.Tests", "MyLibKit.Tests\MyLibKit.Tests.csproj", "{1783A261-76D0-4AFC-A4ED-92556C811319}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{31599995-C024-496E-91F0-8271CDB57A82}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{31599995-C024-496E-91F0-8271CDB57A82}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{31599995-C024-496E-91F0-8271CDB57A82}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1783A261-76D0-4AFC-A4ED-92556C811319}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1783A261-76D0-4AFC-A4ED-92556C811319}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1783A261-76D0-4AFC-A4ED-92556C811319}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1783A261-76D0-4AFC-A4ED-92556C811319}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
