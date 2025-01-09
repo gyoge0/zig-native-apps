@@ -21,12 +21,18 @@
     </PropertyGroup>
 
     <!-- Choose what files to include -->
-    <ItemGroup Condition="$(Configuration) == 'Release'">
-        <!-- Exclude debug files that might be left over from a previous build -->
-        <ZigOutputs Include="../../zig-out/bin/*" Exclude="../../zig-out/bin/*.pdb"/>
+    <ItemGroup Condition="$([MsBuild]::IsOsPlatform('Windows')) And $(Configuration) == 'Release'">
+        <ZigOutputs Include="../../zig-out/bin/*.dll"/>
     </ItemGroup>
-    <ItemGroup Condition="$(Configuration) == 'Debug'">
-        <ZigOutputs Include="../../zig-out/bin/*" />
+    <ItemGroup Condition="$([MsBuild]::IsOsPlatform('Windows')) And $(Configuration) == 'Debug'">
+        <ZigOutputs Include="../../zig-out/bin/*.dll"/>
+        <ZigOutputs Include="../../zig-out/bin/*.pdb"/>
+    </ItemGroup>
+    <ItemGroup Condition="$([MsBuild]::IsOsPlatform('OSX'))">
+        <ZigOutputs Include="../../zig-out/lib/*.dylib"/>
+    </ItemGroup>
+    <ItemGroup Condition="$([MsBuild]::IsOsPlatform('Linux'))">
+        <ZigOutputs Include="../../zig-out/lib/*.so"/>
     </ItemGroup>
 
     <!-- Define the zig build target to run before building the regular library-->

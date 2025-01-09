@@ -19,3 +19,8 @@ and mimics some of the naming from the intended macOS solution.
 
 `MylibKit.Tests` runs some quick tests to ensure the library is imported properly. 
 It's pretty redundant, but it's nice to have to run and quickly verify everything works.
+
+## Crossplatform MylibKit
+
+`MylibKit` is actually cross platform! 
+If you wanted, you could write crossplatform UI with .NET MAUI or Avalonia, but it wouldn't be native UI.
