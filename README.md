@@ -10,12 +10,12 @@ The Windows solution is a fair bit simpler than originally thought.
 It works by calling `zig build` before the main build step in MSBuild and then telling MSBuild to included the generate files with the assembly.
 Then, the zig functions can be called via `DllImport`. 
 
-`MyLibKit` is the project containing the zig build logic and the static extern functions. 
+`MylibKit` is the project containing the zig build logic and the static extern functions. 
 It is then consumed by `MyApp`, so that all `MyApp` sees is a set of static C# functions. 
 The build logic and extern functions could just be written in `MyApp`, but this provides a clean seperation 
 and mimics some of the naming from the intended macOS solution. 
 
-## MyLibKit.Tests
+## MylibKit.Tests
 
-`MyLibKit.Tests` runs some quick tests to ensure the library is imported properly. 
+`MylibKit.Tests` runs some quick tests to ensure the library is imported properly. 
 It's pretty redundant, but it's nice to have to run and quickly verify everything works.
