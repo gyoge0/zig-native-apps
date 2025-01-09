@@ -44,7 +44,7 @@ pub fn build(b: *std.Build) void {
         // Create the XCFramework
         const xcframework = buildpkg.XCFrameworkStep.create(b, .{
             .name = "MylibKit",
-            .out_path = "macos/MylibKit.xcframework",
+            .out_path = "zig-out/MylibKit.xcframework",
             .libraries = &[_]buildpkg.XCFrameworkStep.Library{
                 .{
                     .library = static_lib_universal.output,
