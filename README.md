@@ -24,3 +24,28 @@ It's pretty redundant, but it's nice to have to run and quickly verify everythin
 
 `MylibKit` is actually cross platform! 
 If you wanted, you could write crossplatform UI with .NET MAUI or Avalonia, but it wouldn't be native UI.
+
+# macOS
+
+The macOS solution works by just copying the steps from the ghostty article, but with Tuist to generate the XCode project.
+Everything *should* work right out of the box, with the exception of previews.
+
+## Previews
+
+The preview runner wants a arm64e build in the universal library, which is a superset of arm64.
+I don't know why it's picky about this or how to fix this problem.
+The workaround is to use `Editor > Canvas > Use Legacy Previews Extension`. 
+Note that builds and runs will work fine normally.
+
+## Building before generate
+
+The zig library should be built before running `tuist generate`. 
+Right now, I'm using a Justfile to do this, but it (hopefully) could be integrated into the tuist project.
+
+## Casts
+
+Unlike C#, Swift doesn't cast between Int and Int32 so we have to do it manually.
+
+## iOS
+
+I haven't tried iOS yet, but it should literally be the same as macOS, just with a different target.

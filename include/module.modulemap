@@ -1,0 +1,4 @@
+module MylibKit {
+    umbrella header "mylib.h"
+    export *
+}
